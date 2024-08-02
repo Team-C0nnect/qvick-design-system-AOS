@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -44,13 +46,14 @@ fun Notification(
     }
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .padding(start = 30.dp, end = 30.dp)
-            .clip(RoundedCornerShape(8.dp))
-            .background(opacity0)
+            .wrapContentHeight()
     ) {
         Column(
-            modifier
+            modifier = modifier
+            .clip(RoundedCornerShape(8.dp))
+                .background(opacity0)
         ) {
             Box(
                 modifier = modifier
@@ -64,6 +67,7 @@ fun Notification(
                 ) {
                 Row(
                     modifier = modifier
+                        .wrapContentWidth()
                         .fillMaxWidth(1f)
                         .padding(
                             top = 12.dp,
