@@ -2,9 +2,11 @@ package hs.dgsw.android.qvick_design_system_aos.ui.component.button
 
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -74,7 +76,7 @@ fun Button16(
         colors = buttonColors,
         onClick = { action() },
         enabled = enabled,
-        shape = RoundedCornerShape(24.dp)
+        shape = RoundedCornerShape(16.dp)
     ) {
         Text(
             text = text,
@@ -88,10 +90,17 @@ fun Button16(
 @Composable
 fun Test(){
     Column {
-        Button16(tint = primaryColorBlue500, text = "로그인", Modifier.fillMaxWidth().height(70.dp)) {
+        Button16(tint = primaryColorBlue500, text = "로그인",
+            Modifier
+                .fillMaxWidth()
+                .height(70.dp)) {
             Log.d("taet","")
         }
-        Button24(tint = primaryColorBlue500, text = "로그인", Modifier.fillMaxWidth().height(70.dp)) {
+        Box(modifier = Modifier.padding(5.dp))
+        Button24(tint = primaryColorBlue500, text = "로그인",
+            Modifier
+                .fillMaxWidth()
+                .height(70.dp)) {
 
         }
     }
