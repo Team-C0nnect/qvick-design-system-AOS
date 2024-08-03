@@ -28,9 +28,9 @@ import hs.dgsw.android.qvick_design_system_aos.ui.theme.primaryColorBlue500
 
 @Composable
 fun Button24(
+    modifier: Modifier = Modifier,
     tint: Color = Color.Unspecified,
     text: String,
-    modifier: Modifier = Modifier,
     enabled : Boolean = true,
     action: () -> Unit,
 ) {
@@ -57,9 +57,9 @@ fun Button24(
 
 @Composable
 fun Button16(
+    modifier: Modifier = Modifier,
     tint: Color = Color.Unspecified,
     text: String,
-    modifier: Modifier = Modifier,
     enabled : Boolean = true,
     action: () -> Unit,
 ) {
@@ -91,14 +91,14 @@ fun Button16(
 fun Test(){
     Column {
         Button16(tint = primaryColorBlue500, text = "로그인",
-            Modifier
+            modifier =  Modifier
                 .fillMaxWidth()
                 .height(70.dp)) {
             Log.d("taet","")
         }
         Box(modifier = Modifier.padding(5.dp))
         Button24(tint = primaryColorBlue500, text = "로그인",
-            Modifier
+            modifier =  Modifier
                 .fillMaxWidth()
                 .height(70.dp)) {
 
