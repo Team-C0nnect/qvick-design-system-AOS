@@ -1,4 +1,4 @@
-package hs.dgsw.android.qvick_design_system_aos.ui.component.toggle
+package hs.dgsw.android.qvick_design_system_aos.ui.component.notification
 
 import android.util.Log
 import androidx.compose.foundation.Canvas
@@ -8,10 +8,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -46,17 +46,17 @@ fun Notification(
     }
 
     Box(
-        modifier = modifier
+        modifier = Modifier
             .padding(start = 30.dp, end = 30.dp)
             .wrapContentHeight()
     ) {
         Column(
-            modifier = modifier
+            modifier = Modifier
             .clip(RoundedCornerShape(8.dp))
                 .background(opacity0)
         ) {
             Box(
-                modifier = modifier
+                modifier = Modifier
                     .clickable {
                         isVisibility.value = !isVisibility.value
                         Log.d("TAG", "clicked Box | isVisibility : $isVisibility")
@@ -66,7 +66,7 @@ fun Notification(
 
                 ) {
                 Row(
-                    modifier = modifier
+                    modifier = Modifier
                         .wrapContentWidth()
                         .fillMaxWidth(1f)
                         .padding(
@@ -78,24 +78,24 @@ fun Notification(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Row(
-                        modifier = modifier,
+                        modifier = Modifier,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         icon()
                         Column(
-                            modifier = modifier.padding(
+                            modifier = Modifier.padding(
                                 start = 12.dp
                             )
                         ) {
                             Text(
                                 text = title,
-                                modifier = modifier,
+                                modifier = Modifier,
                                 style = TextStyle.Default
                             )
-                            Box(modifier = modifier.padding(top = 4.dp))
+                            Spacer(modifier = Modifier.padding(top = 4.dp))
                             Text(
                                 text = date,
-                                modifier = modifier,
+                                modifier = Modifier,
                                 style = TextStyle.Default,
                                 color = opacity74
                             )
@@ -103,7 +103,7 @@ fun Notification(
                     }
                     Text(
                         text = "작성자 : $writer",
-                        modifier = modifier
+                        modifier = Modifier
                             .align(alignment = Alignment.Bottom),
                         color = opacity74
                     )
