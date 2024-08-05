@@ -71,13 +71,13 @@ fun DuckieTextField(
     text: String,
     length: Int = 4,
     charTextField: @Composable (Char, Boolean) -> Unit = {char, isFocused -> DuckieTextFieldCharContainer(Modifier, char, isFocused) },
-    onValueChange: (String, String) -> String = { _, new -> new },
+    onValueChange: (String, String, Int) -> String = { _, new, _ -> new },
     keyboardOptions : KeyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
 ) {
     BasicTextField(
         value = text,
         onValueChange = {
-            onValueChange(text, it)
+            onValueChange(text, it, length)
             Log.d("tag", "text = $it")
             Log.d("tag", "length = ${text.length}")
             Log.d("tag", "sub length = ${length - text.length}")
@@ -153,8 +153,8 @@ fun TextFieldTest() {
         Text(text = test)
         DuckieTextField(
             text = test,
-            onValueChange = {old , new ->
-                if (new.length > 1 || new.any { !it.isDigit() }) old else new
+            onValueChange = {old , new, length ->
+                if (new.length > length || new.any { !it.isDigit() }) old else new
             }
         )
         TextField(endIcon = { A() }, startIcon = { A() }, textStyle = TextStyle())
