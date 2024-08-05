@@ -1,5 +1,6 @@
 package hs.dgsw.android.qvick_design_system_aos.ui.textfield
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -25,19 +26,26 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.substring
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import hs.dgsw.android.qvick_design_system_aos.R
+import hs.dgsw.android.qvick_design_system_aos.ui.theme.colorNull
+import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity74
+import hs.dgsw.android.qvick_design_system_aos.ui.theme.primaryColorBlue500
+import hs.dgsw.android.qvick_design_system_aos.ui.theme.primaryColorBlue600
+import kotlin.math.abs
 
 @Composable
 fun TextField(
     modifier: Modifier = Modifier,
-    hint: String = "",
+    hint: @Composable (() -> Unit)? = null,
     label: String = "",
     textStyle: TextStyle,
-    startIcon: () -> Unit,
-    endIcon: () -> Unit,
+    startIcon: @Composable () -> Unit,
+    endIcon: @Composable () -> Unit,
     customValue: String = "",
     isError: Boolean = false,
 ) {
@@ -52,52 +60,45 @@ fun TextField(
         },
         modifier = modifier,
         enabled = true,
-        readOnly = false,
         textStyle = textStyle,
-        label = null,
-        placeholder = null,
-        leadingIcon = null,
-        trailingIcon= null,
-        prefix = null,
-        suffix = null,
-        supportingText = null,
-        isError = isError,
-        visualTransformation = VisualTransformation.None,
-        keyboardOptions = KeyboardOptions.Default,
-        keyboardActions = KeyboardActions.Default,
-        singleLine = false,
-        maxLines =  1 ,
-        minLines = 1,
-        interactionSource = remember { MutableInteractionSource() },
-        shape = OutlinedTextFieldDefaults.shape,
-        colors = OutlinedTextFieldDefaults.colors()
-    )
+        label = { A() },
+
+        )
 }
 
 @Composable
-private fun DuckieTextField(
+fun DuckieTextField(
     text: String,
-    onTextChanged: (String) -> Unit,
+    length: Int = 4,
+    charTextField: @Composable (Char, Boolean) -> Unit = {char, isFocused -> DuckieTextFieldCharContainer(Modifier, char, isFocused) },
+    onValueChange: (String, String) -> String = { _, new -> new },
+    keyboardOptions : KeyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
 ) {
     BasicTextField(
         value = text,
-        onValueChange = onTextChanged,
+        onValueChange = {
+            onValueChange(text, it)
+            Log.d("tag", "text = $it")
+            Log.d("tag", "length = ${text.length}")
+            Log.d("tag", "sub length = ${length - text.length}")
+        },
         decorationBox = {
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 text.forEachIndexed { index, char ->
-                    DuckieTextFieldCharContainer(
-                        text = char,
-                        isFocused = index == text.lastIndex,
+                    charTextField(
+                        char,
+                        index == text.lastIndex,
                     )
                 }
-                repeat(10 - text.length) {
-                    DuckieTextFieldCharContainer(
-                        text = ' ',
-                        isFocused = false,
+                repeat(abs(length - text.length)) {
+                    charTextField(
+                         ' ',
+                         false
                     )
                 }
             }
         },
+        keyboardOptions = keyboardOptions,
     )
 }
 
@@ -105,7 +106,8 @@ private fun DuckieTextField(
 private fun DuckieTextFieldCharContainer(
     modifier: Modifier = Modifier,
     text: Char,
-    isFocused: Boolean,
+    isFocused: Boolean
+
 ) {
     val shape = remember { RoundedCornerShape(4.dp) }
 
@@ -116,18 +118,22 @@ private fun DuckieTextFieldCharContainer(
                 height = 40.dp,
             )
             .background(
-                color = Color(0xFFF6F6F6),
+                color = colorNull,
                 shape = shape,
             )
             .run {
                 if (isFocused) {
                     border(
                         width = 1.dp,
-                        color = Color(0xFFFF8300),
+                        color = primaryColorBlue600,
                         shape = shape,
                     )
                 } else {
-                    this
+                    border(
+                        width = 1.dp,
+                        color = opacity74,
+                        shape = shape,
+                    )
                 }
             },
         contentAlignment = Alignment.Center,
@@ -147,15 +153,19 @@ fun TextFieldTest() {
         Text(text = test)
         DuckieTextField(
             text = test,
-            onTextChanged = {
-                test = it
+            onValueChange = {old , new ->
+                if (new.length > 1 || new.any { !it.isDigit() }) old else new
             }
         )
-        val a = Icon(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground),
-            contentDescription = ""
-        )
-        TextField(endIcon = { a }, startIcon = { a }, textStyle = TextStyle())
+        TextField(endIcon = { A() }, startIcon = { A() }, textStyle = TextStyle())
 
     }
+}
+
+@Composable
+fun A() {
+    Icon(
+        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+        contentDescription = ""
+    )
 }
