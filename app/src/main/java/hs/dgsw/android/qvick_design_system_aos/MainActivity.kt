@@ -19,9 +19,9 @@ import hs.dgsw.android.qvick_design_system_aos.ui.component.notification.Notific
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.IcNotifications
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
-import hs.dgsw.android.qvick_design_system_aos.ui.textfield.A
-import hs.dgsw.android.qvick_design_system_aos.ui.textfield.QvickCheckEmailTextField
-import hs.dgsw.android.qvick_design_system_aos.ui.textfield.TextField
+import hs.dgsw.android.qvick_design_system_aos.ui.component.textfield.A
+import hs.dgsw.android.qvick_design_system_aos.ui.component.textfield.QvickCheckEmailTextField
+import hs.dgsw.android.qvick_design_system_aos.ui.component.textfield.TextField
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.QvickdesignsystemAOSTheme
 
 class MainActivity : ComponentActivity() {

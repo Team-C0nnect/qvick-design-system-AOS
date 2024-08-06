@@ -1,4 +1,4 @@
-package hs.dgsw.android.qvick_design_system_aos.ui.textfield
+package hs.dgsw.android.qvick_design_system_aos.ui.component.textfield
 
 import android.util.Log
 import androidx.compose.foundation.background
