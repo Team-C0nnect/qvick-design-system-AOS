@@ -16,7 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import hs.dgsw.android.qvick_design_system_aos.ui.component.notification.Notification
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.IcNotifications
+import hs.dgsw.android.qvick_design_system_aos.ui.foundation.IcNotifications
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import hs.dgsw.android.qvick_design_system_aos.ui.component.textfield.A

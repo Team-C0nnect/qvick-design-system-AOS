@@ -26,7 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.IcNotifications
+import hs.dgsw.android.qvick_design_system_aos.ui.foundation.IcNotifications
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.common0
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity0
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity74
