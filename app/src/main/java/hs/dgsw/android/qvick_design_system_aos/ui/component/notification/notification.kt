@@ -53,7 +53,7 @@ fun Notification(
         Column(
             modifier = Modifier
             .clip(RoundedCornerShape(8.dp))
-                .background(opacity0)
+            .background(opacity0)
         ) {
             Box(
                 modifier = Modifier
