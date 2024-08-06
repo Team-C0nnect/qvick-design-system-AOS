@@ -3,7 +3,6 @@ package hs.dgsw.android.qvick_design_system_aos.ui.textfield
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,30 +10,27 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.substring
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import hs.dgsw.android.qvick_design_system_aos.R
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.colorNull
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity74
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.primaryColorBlue500
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.primaryColorBlue600
 import kotlin.math.abs
 
@@ -67,10 +63,10 @@ fun TextField(
 }
 
 @Composable
-fun DuckieTextField(
+fun QvickCheckEmailTextField(
     text: String,
     length: Int = 4,
-    charTextField: @Composable (Char, Boolean) -> Unit = {char, isFocused -> DuckieTextFieldCharContainer(Modifier, char, isFocused) },
+    charTextField: @Composable (Char, Boolean) -> Unit = {char, isFocused -> QvickCharContainer(Modifier, char, isFocused) },
     onValueChange: (String, String, Int) -> String = { _, new, _ -> new },
     keyboardOptions : KeyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
 ) {
@@ -103,19 +99,20 @@ fun DuckieTextField(
 }
 
 @Composable
-private fun DuckieTextFieldCharContainer(
+private fun QvickCharContainer(
     modifier: Modifier = Modifier,
     text: Char,
-    isFocused: Boolean
-
+    isFocused: Boolean,
+    width : Dp = 74.dp,
+    height : Dp = 84.dp
 ) {
     val shape = remember { RoundedCornerShape(4.dp) }
 
     Box(
         modifier = modifier
             .size(
-                width = 29.dp,
-                height = 40.dp,
+                width = width,
+                height = height,
             )
             .background(
                 color = colorNull,
@@ -146,13 +143,13 @@ private fun DuckieTextFieldCharContainer(
 @Composable
 fun TextFieldTest() {
 
-    var test = remember {
-        "test"
+    val test : MutableState<String> = rememberSaveable {
+        mutableStateOf("")
     }
     Column {
-        Text(text = test)
-        DuckieTextField(
-            text = test,
+        Text(text = test.value)
+        QvickCheckEmailTextField(
+            text = test.value,
             onValueChange = {old , new, length ->
                 if (new.length > length || new.any { !it.isDigit() }) old else new
             }
