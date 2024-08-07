@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -92,7 +93,7 @@ fun Test() {
         InfoBar(
             context = "test",
             startIcon = { IcNotifications(contentDescription = "") },
-            endIcon = { IcNavigate_next(contentDescription = "") })
+            endIcon = { IcNavigate_next(modifier = Modifier.size(32.dp), contentDescription = "") })
         ShadowModifier()
     }
 }
