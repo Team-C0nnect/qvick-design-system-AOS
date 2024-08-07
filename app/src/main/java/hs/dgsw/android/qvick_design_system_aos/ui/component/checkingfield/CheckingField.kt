@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,6 +30,7 @@ import hs.dgsw.android.qvick_design_system_aos.ui.component.button.Button12
 import hs.dgsw.android.qvick_design_system_aos.ui.foundation.IcNavigate_next
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.common100
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity0
+import hs.dgsw.android.qvick_design_system_aos.ui.theme.pretendard
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.statusDestructive
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.statusPositive
 
@@ -39,7 +41,7 @@ fun CheckingField(
     isChecked: Boolean = false,
     toDayDate: String = "2024.05.24",
     checkingTime: MutableState<String> = mutableStateOf<String>(""),
-    checking : ()->Unit = {}
+    checking: () -> Unit = {},
 ) {
     val buttonText: MutableState<String> = remember { mutableStateOf<String>("출석체크 미완료") }
     Surface(
@@ -89,7 +91,7 @@ fun CheckingField(
                             modifier = modifier
                                 .padding(all = 4.dp),
 
-                        ) {
+                            ) {
                             IcNavigate_next(
                                 contentDescription = "", modifier = Modifier
                                     .size(48.dp)
@@ -110,8 +112,19 @@ fun CheckingField(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = toDayDate, fontSize = 20.sp)
-                Text(text = checkingTime.value, fontSize = 24.sp)
+                Text(
+                    text = toDayDate,
+                    fontSize = 16.sp,
+                    fontFamily = pretendard,
+                    fontWeight = FontWeight.Medium
+                    )
+                Text(
+                    text = checkingTime.value,
+                    color = statusPositive,
+                    fontSize = 24.sp,
+                    fontFamily = pretendard,
+                    fontWeight = FontWeight.SemiBold
+                )
 
             }
 

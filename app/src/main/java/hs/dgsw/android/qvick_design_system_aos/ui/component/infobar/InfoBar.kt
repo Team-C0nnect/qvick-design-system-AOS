@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,6 +28,7 @@ import hs.dgsw.android.qvick_design_system_aos.ui.foundation.IcNavigate_next
 import hs.dgsw.android.qvick_design_system_aos.ui.foundation.IcNotifications
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.common0
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity0
+import hs.dgsw.android.qvick_design_system_aos.ui.theme.pretendard
 
 @Composable
 fun InfoBar(
@@ -63,7 +65,7 @@ fun InfoBar(
             ) {
                 startIcon()
                 Box(Modifier.padding(end = 8.dp))
-                Text(text = context, fontSize = 16.sp)
+                Text(text = context, fontSize = 16.sp, fontFamily = pretendard, fontWeight = FontWeight.Medium)
             }
             endIcon()
         }
@@ -92,7 +94,7 @@ fun Test() {
     Column(modifier = Modifier, verticalArrangement = Arrangement.Center) {
         InfoBar(
             context = "test",
-            startIcon = { IcNotifications(contentDescription = "") },
+            startIcon = { IcNotifications(modifier = Modifier.size(32.dp), contentDescription = "") },
             endIcon = { IcNavigate_next(modifier = Modifier.size(32.dp), contentDescription = "") })
         ShadowModifier()
     }

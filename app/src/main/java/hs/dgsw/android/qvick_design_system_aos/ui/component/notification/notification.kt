@@ -24,12 +24,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import hs.dgsw.android.qvick_design_system_aos.ui.foundation.IcNotifications
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.common0
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity0
 import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity74
+import hs.dgsw.android.qvick_design_system_aos.ui.theme.pretendard
 
 
 @Composable
@@ -90,14 +93,20 @@ fun Notification(
                             Text(
                                 text = title,
                                 modifier = Modifier,
-                                style = TextStyle.Default
+                                style = TextStyle.Default,
+                                fontSize = 18.sp,
+                                fontFamily = pretendard,
+                                fontWeight = FontWeight.SemiBold
                             )
                             Spacer(modifier = Modifier.padding(top = 4.dp))
                             Text(
                                 text = date,
                                 modifier = Modifier,
                                 style = TextStyle.Default,
-                                color = opacity74
+                                color = opacity74,
+                                fontSize = 12.sp,
+                                fontFamily = pretendard,
+                                fontWeight = FontWeight.Medium
                             )
                         }
                     }
@@ -105,7 +114,10 @@ fun Notification(
                         text = "작성자 : $writer",
                         modifier = Modifier
                             .align(alignment = Alignment.Bottom),
-                        color = opacity74
+                        color = opacity74,
+                        fontSize = 12.sp,
+                        fontFamily = pretendard,
+                        fontWeight = FontWeight.Medium
                     )
                 }
 
@@ -126,7 +138,13 @@ fun DescriptionText(description: String, modifier: Modifier = Modifier) {
             .wrapContentWidth()
             .fillMaxWidth(1F)
     ) {
-        Text(text = description)
+        Text(
+            text = description,
+            color = common0,
+            fontSize = 16.sp,
+            fontFamily = pretendard,
+            fontWeight = FontWeight.Medium
+            )
     }
 }
 
