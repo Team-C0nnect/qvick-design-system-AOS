@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("maven-publish")
+    id ("maven-publish")
 }
 
 android {
@@ -78,7 +78,7 @@ dependencies {
 publishing {
     publications {
         create("release", MavenPublication::class) {
-            groupId = "com.github.C0nnect"
+            groupId = "com.github.Team-C0nnect"
             artifactId = "qvick-design-system-AOS"
             version = "1.0.0"
 
