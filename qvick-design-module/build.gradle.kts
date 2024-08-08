@@ -4,6 +4,19 @@ plugins {
     id("maven-publish")
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            register("release", MavenPublication::class) {
+                from(components["release"])
+                groupId = "com.github.Team-C0nnect"
+                artifactId = "qvick-design-system"
+                version = "1.0.2"
+            }
+        }
+    }
+}
+
 android {
     namespace = "hs.dgsw.android.qvick_design_module"
     compileSdk = 34
