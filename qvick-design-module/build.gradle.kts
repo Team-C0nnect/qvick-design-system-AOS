@@ -17,6 +17,7 @@ afterEvaluate {
     }
 }
 
+
 android {
     namespace = "hs.dgsw.android.qvick_design_module"
     compileSdk = 34
