@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "qvick-design-system-AOS"
 include(":app")
+include(":qvick-design-module")
