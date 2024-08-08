@@ -6,10 +6,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import hs.dgsw.android.qvick_design_system_aos.R
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.common0
+import hs.dgsw.android.qvick_design_module.R
+import hs.dgsw.android.qvick_design_module.ui.theme.common0
 
 @Composable
 fun IcAccount(

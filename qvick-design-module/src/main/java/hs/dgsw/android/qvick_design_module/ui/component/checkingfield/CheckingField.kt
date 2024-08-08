@@ -20,19 +20,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import hs.dgsw.android.qvick_design_system_aos.ui.component.button.Button12
-import hs.dgsw.android.qvick_design_system_aos.ui.foundation.IcNavigate_next
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.common100
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity0
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.pretendard
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.statusDestructive
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.statusPositive
+import hs.dgsw.android.qvick_design_module.ui.component.button.Button12
+import hs.dgsw.android.qvick_design_module.ui.foundation.IcNavigate_next
+import hs.dgsw.android.qvick_design_module.ui.theme.common100
+import hs.dgsw.android.qvick_design_module.ui.theme.opacity0
+import hs.dgsw.android.qvick_design_module.ui.theme.pretendard
+import hs.dgsw.android.qvick_design_module.ui.theme.statusDestructive
+import hs.dgsw.android.qvick_design_module.ui.theme.statusPositive
 
 // 만약 출석체크가 안 됬있다면, 빈 스트링 넣으시면 됨니다.
 @Composable

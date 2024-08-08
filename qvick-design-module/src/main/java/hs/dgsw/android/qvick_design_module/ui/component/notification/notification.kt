@@ -28,11 +28,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import hs.dgsw.android.qvick_design_system_aos.ui.foundation.IcNotifications
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.common0
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity0
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity74
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.pretendard
+import hs.dgsw.android.qvick_design_module.ui.foundation.IcNotifications
+import hs.dgsw.android.qvick_design_module.ui.theme.common0
+import hs.dgsw.android.qvick_design_module.ui.theme.opacity0
+import hs.dgsw.android.qvick_design_module.ui.theme.opacity74
+import hs.dgsw.android.qvick_design_module.ui.theme.pretendard
 
 
 @Composable

@@ -15,8 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity5
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.statusInfo
+import hs.dgsw.android.qvick_design_module.ui.theme.opacity5
+import hs.dgsw.android.qvick_design_module.ui.theme.statusInfo
 
 @Composable
 fun ToggleSet(

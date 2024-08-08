@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import hs.dgsw.android.qvick_design_system_aos.R
+import hs.dgsw.android.qvick_design_module.R
 
 // Set of Material typography styles to start with
 val Typography = Typography(

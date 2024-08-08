@@ -12,8 +12,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.primaryColorBlue500
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.statusDestructive
+import hs.dgsw.android.qvick_design_module.ui.theme.primaryColorBlue500
+import hs.dgsw.android.qvick_design_module.ui.theme.statusDestructive
 
 @Composable
 fun RequiredText(modifier: Modifier = Modifier, textSize : TextUnit = 16.sp){

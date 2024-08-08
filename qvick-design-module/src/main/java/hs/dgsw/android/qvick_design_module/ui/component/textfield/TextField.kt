@@ -28,10 +28,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import hs.dgsw.android.qvick_design_system_aos.R
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.colorNull
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.opacity74
-import hs.dgsw.android.qvick_design_system_aos.ui.theme.primaryColorBlue600
+import hs.dgsw.android.qvick_design_module.R
+import hs.dgsw.android.qvick_design_module.ui.theme.colorNull
+import hs.dgsw.android.qvick_design_module.ui.theme.opacity74
+import hs.dgsw.android.qvick_design_module.ui.theme.primaryColorBlue600
 import kotlin.math.abs
 
 @Composable
