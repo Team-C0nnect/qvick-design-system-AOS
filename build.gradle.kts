@@ -2,7 +2,6 @@
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
-    id("maven-publish")
 }
 
 //afterEvaluate {
@@ -24,17 +23,3 @@ plugins {
 //        }
 //    }
 //}
-
-publishing {
-    publications {
-        create("release", MavenPublication::class) {
-            groupId = "com.github.C0nnect"
-            artifactId = "qvick-design-system-AOS"
-            version = "1.0.1"
-
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
-}

@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-//    id("org.jetbrains.kotlin.android") version "1.7.10" apply false
-    id("maven-publish")
 }
 
 android {
