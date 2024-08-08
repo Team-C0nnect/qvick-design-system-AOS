@@ -16,8 +16,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://jitpack.io")
     }
 }
+
 
 rootProject.name = "qvick-design-system-AOS"
 include(":app")

@@ -1,7 +1,7 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    id("com.android.library")
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id ("maven-publish")
+    id("maven-publish")
 }
 
 android {
@@ -9,11 +9,8 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "hs.dgsw.android.qvick_design_module"
         minSdk = 28
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -75,16 +72,19 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 }
 
-publishing {
-    publications {
-        create("release", MavenPublication::class) {
-            groupId = "com.github.Team-C0nnect"
-            artifactId = "qvick-design-system-AOS"
-            version = "1.0.0"
-
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
-}
+//publishing {
+//    publications {
+//        create<MavenPublication>("release") {
+//            from(components["release"])
+//
+//            groupId = "com.github.Team-C0nnect"
+//            artifactId = "qvick-design-system"
+//            version = "1.0.0"
+//
+//            pom {
+//                name.set("qvick-design-system")
+//                description.set("Qvick Design System for Android")
+//            }
+//        }
+//    }
+//}
