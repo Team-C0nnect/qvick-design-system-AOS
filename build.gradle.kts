@@ -5,21 +5,35 @@ plugins {
     id("maven-publish")
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            register<MavenPublication>("release") {
-                // Use the correct component name
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            register<MavenPublication>("release") {
+//                // Use the correct component name
+//                from(components["release"])
+//
+//                groupId = "com.github.C0nnect"
+//                artifactId = "qvick-design-system-AOS"
+//                version = "1.0.0"
+//
+//                pom {
+//                    name.set("qvick-design-system")
+//                    description.set("Qvick Design System for Android")
+//                }
+//            }
+//        }
+//    }
+//}
+
+publishing {
+    publications {
+        create("release", MavenPublication::class) {
+            groupId = "com.github.C0nnect"
+            artifactId = "qvick-design-system-AOS"
+            version = "1.0.0"
+
+            afterEvaluate {
                 from(components["release"])
-
-                groupId = "com.github.C0nnect"
-                artifactId = "qvick-design-system-AOS"
-                version = "1.0.0"
-
-                pom {
-                    name.set("qvick-design-system")
-                    description.set("Qvick Design System for Android")
-                }
             }
         }
     }

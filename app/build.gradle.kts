@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
 //    id("org.jetbrains.kotlin.android") version "1.7.10" apply false
+    id("maven-publish")
 }
 
 android {
@@ -51,7 +52,6 @@ android {
 }
 
 dependencies {
-    implementation ("com.github.User:Repo:2")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
