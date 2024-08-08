@@ -80,7 +80,7 @@ publishing {
         create("release", MavenPublication::class) {
             groupId = "com.github.C0nnect"
             artifactId = "qvick-design-system-AOS"
-            version = "1.0.2"
+            version = "1.0.0"
 
             afterEvaluate {
                 from(components["release"])
